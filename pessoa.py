@@ -1,5 +1,4 @@
 from pokemon import *
-import random
 
 NOMES = ["Miau", "Jack", "Jane"]
 POKEMONS = [
@@ -43,7 +42,7 @@ class Pessoa:
         self.pokemons = pokemons
     
     def __str__(self):
-        return f'PLAYER: {self.nome}'
+        return f'{self.nome}'
 
     def mostrar_pokemons(self):
         if self.pokemons:
@@ -60,7 +59,7 @@ class Player(Pessoa):
     tipo = "player"
     def capturar(self, pokemon):
         self.pokemons.append(pokemon)
-        print(f"{self.nome}, capturou um pokemon! {pokemon}:")
+        print(f"{self.nome}, capturou um pokemon! {pokemon}")
 
 class Inimigo(Pessoa):
     tipo = "inimigo"
@@ -72,6 +71,6 @@ class Inimigo(Pessoa):
         super().__init__(nome=nome, pokemons=pokemons)
 
 
-Meu_inimigo = Inimigo()
+"""Meu_inimigo = Inimigo()
 print(Meu_inimigo)
-Meu_inimigo.mostrar_pokemons()
+Meu_inimigo.mostrar_pokemons()"""
