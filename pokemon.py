@@ -14,7 +14,7 @@ class Pokemon:
             self.level = random.randint(1,100)
         
     def __str__(self):
-        return f"\nEspecie: {self.especie}\nLevel: {self.level}\nTipo: {self.tipo}"
+        return f"Especie: {self.especie} | Level: {self.level} | Tipo: {self.tipo}"
 
     def atacar(self, adversario):
         print(f"{self.especie} atacou! {adversario.especie}")

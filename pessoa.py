@@ -46,14 +46,30 @@ class Pessoa:
 
     def mostrar_pokemons(self):
         if self.pokemons:
-            c=1
-            for p in self.pokemons:
-                print("_"*50)
-                print(f'Pokemon {c}:') 
-                print(p)
-                c+=1
+            print(f"Esses são os pokemons de {self}")
+            for e, p in enumerate(self.pokemons):
+                print(f'[{e+1}] - {p}') 
+        
         else:
             print(f"{self} não possui pokemons")
+
+    def escolher_pokemon(self):
+        while True:
+            print(f"{self} escolha um de seus pokemons para batalhar: ")
+            self.mostrar_pokemons()
+            try:
+                escolha = int(input(">>> "))-1
+                pokemon_escolhido = self.pokemons[escolha]
+                print(f"{pokemon_escolhido.nome} eu escolho você!!!")
+                return pokemon_escolhido
+            except:
+                print(f"Valor informado é invalido, escolha um numero entre 1 e {len(self.pokemons)} para selecionar um pokemon para batalha")
+
+    def batalhar(self, pessoa):
+        print(f"{self} iniciou uma batalha com {pessoa}!!!")
+        pessoa.mostrar_pokemons()
+        pessoa.escolher_pokemon()
+        self.escolher_pokemon()
 
 class Player(Pessoa):
     tipo = "player"
@@ -70,7 +86,7 @@ class Inimigo(Pessoa):
                 pokemons.append(random.choice(POKEMONS))
         super().__init__(nome=nome, pokemons=pokemons)
 
-
-"""Meu_inimigo = Inimigo()
-print(Meu_inimigo)
-Meu_inimigo.mostrar_pokemons()"""
+    def escolher_pokemon(self):
+        pokemon_escolhido = random.choice(self.pokemons)
+        print(f"{self} escolheu {pokemon_escolhido.nome}")
+        return pokemon_escolhido
