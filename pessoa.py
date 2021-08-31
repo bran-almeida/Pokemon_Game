@@ -164,5 +164,3 @@ class Inimigo(Pessoa):
             for p in range(random.randint(1,6)):
                 pokemons.append(random.choice(POKEMONS))
         super().__init__(nome=nome, pokemons=pokemons)
-
-    
