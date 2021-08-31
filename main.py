@@ -26,10 +26,8 @@ def escolher_pokemon_incial(player):
             print("Você deve escolher 1, 2 ou 3!!!")
 
 eu = Player("Brandon")
-inimigo1 = Inimigo("Gary")
-escolher_pokemon_incial(eu)
-
-eu.batalhar(inimigo1)
+eu.explorar()
+eu.mostrar_pokemons()
 
 
 
