@@ -66,7 +66,7 @@ class Pessoa:
         self.mostrar_dinheiro()
 
     def mostrar_dinheiro(self):
-        print(f"Você possui {self.money}")
+        print(f"Você possui $ {self.money},00 em sua conta!")
 
     def batalhar(self, pessoa):
         print(f"{self} iniciou uma batalha com {pessoa}!!!")
@@ -96,6 +96,7 @@ class Player(Pessoa):
         print(f"{self.nome}, capturou um pokemon: {pokemon.especie}")
     
     def escolher_pokemon(self):
+
         while True:
             print(f"{self} escolha um de seus pokemons para batalhar: ")
             self.mostrar_pokemons()
@@ -157,10 +158,17 @@ class Player(Pessoa):
                     print("Valor inválido, informe \"s\" ou \"n\"")
 
 class Inimigo(Pessoa):
+
+
     tipo = "inimigo"
 
     def __init__(self, nome=None, pokemons=[]):
         if not pokemons:
+            pokemons_aleatorios = []
             for p in range(random.randint(1,6)):
-                pokemons.append(random.choice(POKEMONS))
-        super().__init__(nome=nome, pokemons=pokemons)
+                pokemons_aleatorios.append(random.choice(POKEMONS))
+            
+            super().__init__(nome=nome, pokemons=pokemons_aleatorios)
+
+        else:
+            super().__init__(nome=nome, pokemons=pokemons)
